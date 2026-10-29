@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7f4" />
+    <title>Daily Commit — Keep your streak alive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Daily Commit home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span>daily<span class="brand-light">commit</span></span>
+        </a>
+        <span class="topbar-note"><span class="online-dot"></span> Your progress, just for you</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="eyebrow-line"></span> SHOW UP. SHIP SOMETHING.</p>
+        <h1 id="page-title">Small commits.<br /><span>Big momentum.</span></h1>
+        <p class="intro-copy">A little progress every day adds up. Check in when you’ve made a commit and keep your streak going.</p>
+      </section>
+
+      <section class="dashboard" aria-label="Your commit progress">
+        <article class="streak-card">
+          <div class="streak-card-top">
+            <div>
+              <p class="card-label">CURRENT STREAK</p>
+              <p class="streak-date" id="today-label"></p>
+            </div>
+            <span class="flame-badge" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path d="M17.3 3.5c.8 5-4.8 6.7-3.1 11.1.7 1.8 2.4 2.5 3.5 1.2 1.2-1.3.8-3.2.3-4.4 4.2 2.4 7 6.4 6 11.2-.8 4-4.1 6.4-8.1 6.4-5.3 0-9-3.7-9-8.7 0-3.5 2-6.1 4.6-8.7-.1 3.5 1.1 4.5 2.1 4.5 1.2 0 1.6-1.4 1.4-2.7-.4-3 1.3-6.1 2.3-8.9Z" fill="currentColor" />
+              </svg>
+            </span>
+          </div>
+          <div class="streak-number-row">
+            <span class="streak-number" id="current-streak">0</span>
+            <span class="streak-unit">day<br />streak</span>
+          </div>
+          <div class="streak-divider"></div>
+          <div class="streak-footer">
+            <span class="streak-message" id="streak-message">Your next streak starts today.</span>
+            <span class="sparkle" aria-hidden="true">✳</span>
+          </div>
+          <div class="card-decoration" aria-hidden="true"></div>
+        </article>
+
+        <article class="checkin-card">
+          <div class="checkin-heading">
+            <div class="checkin-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 3v3m8-3v3M4.5 9.5h15M6 5h12a1.5 1.5 0 0 1 1.5 1.5v12A1.5 1.5 0 0 1 18 20H6a1.5 1.5 0 0 1-1.5-1.5v-12A1.5 1.5 0 0 1 6 5Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="m9 14 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <p class="card-label">TODAY’S CHECK-IN</p>
+              <p class="checkin-date" id="checkin-date"></p>
+            </div>
+          </div>
+          <h2 id="checkin-title">Did you make a commit today?</h2>
+          <p class="checkin-copy" id="checkin-copy">Every commit counts, no matter how small.</p>
+          <button class="checkin-button" id="checkin-button" type="button">
+            <span id="button-label">Yes, I committed today</span>
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 10h12m-5-5 5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <p class="privacy-note">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4.5 7V5a3.5 3.5 0 1 1 7 0v2m-7.5 0h8a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+            </svg>
+            Saved on this device only
+          </p>
+          <p class="storage-error" id="storage-error" role="status" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <section class="daily-number-card" aria-labelledby="daily-number-title">
+        <div>
+          <p class="card-label">TODAY’S NUMBER</p>
+          <h2 id="daily-number-title">Change one number. Make one commit.</h2>
+          <p class="daily-number-hint">Each day, edit <code>DAILY_NUMBER</code> in <code>index.html</code>, then commit.</p>
+        </div>
+        <output class="daily-number-box" id="daily-number" aria-label="Today's number"></output>
+      </section>
+
+      <section class="history-section" aria-labelledby="history-title">
+        <div class="section-heading">
+          <div>
+            <p class="card-label">THE BIG PICTURE</p>
+            <h2 id="history-title">Your commit history</h2>
+          </div>
+          <div class="month-nav" aria-label="Choose month">
+            <button type="button" class="month-arrow" id="previous-month" aria-label="Previous month">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m12.5 4.5-5 5 5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+            <span class="month-label" id="month-label"></span>
+            <button type="button" class="month-arrow" id="next-month" aria-label="Next month">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m7.5 4.5 5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="history-card">
+          <div class="calendar" role="grid" aria-label="Commit history calendar">
+            <div class="weekday" role="columnheader">MON</div>
+            <div class="weekday" role="columnheader">TUE</div>
+            <div class="weekday" role="columnheader">WED</div>
+            <div class="weekday" role="columnheader">THU</div>
+            <div class="weekday" role="columnheader">FRI</div>
+            <div class="weekday" role="columnheader">SAT</div>
+            <div class="weekday" role="columnheader">SUN</div>
+            <div class="calendar-days" id="calendar-days"></div>
+          </div>
+          <div class="history-footer">
+            <div class="legend">
+              <span class="legend-item"><span class="legend-dot checked"></span> Committed</span>
+              <span class="legend-item"><span class="legend-dot missed"></span> No commit</span>
+              <span class="legend-item"><span class="legend-dot upcoming"></span> Upcoming</span>
+            </div>
+            <div class="month-summary"><span class="summary-check">✓</span> <span id="month-summary"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-row" aria-label="All-time stats">
+        <article class="stat-card">
+          <span class="stat-icon total-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M4 15.5V10m6 5.5V4.5m6 11V7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+          </span>
+          <div><p class="stat-value" id="total-days">0</p><p class="stat-label">TOTAL COMMIT DAYS</p></div>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon best-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><path d="m10 2.5 2.1 4.3 4.7.7-3.4 3.3.8 4.7-4.2-2.2-4.2 2.2.8-4.7-3.4-3.3 4.7-.7L10 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
+          </span>
+          <div><p class="stat-value" id="best-streak">0 days</p><p class="stat-label">LONGEST STREAK</p></div>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon month-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M5 3v2.5M15 3v2.5M3 7.5h14M4.5 4.5h11A1.5 1.5 0 0 1 17 6v10a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 3 16V6a1.5 1.5 0 0 1 1.5-1.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+          </span>
+          <div><p class="stat-value" id="month-days">0</p><p class="stat-label">DAYS THIS MONTH</p></div>
+        </article>
+      </section>
+
+      <footer class="page-footer">
+        <p>Progress over perfection. Keep showing up.</p>
+        <span>ONE COMMIT AT A TIME <span class="footer-star">✳</span></span>
+      </footer>
+    </main>
+
+    <script>
+      const STORAGE_KEY = "daily-commit-dates";
+      const DAILY_NUMBER = 1;
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      let viewedMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+      let committedDates = new Set();
+
+      const dateKey = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      };
+
+      const formatDate = (date, options) => new Intl.DateTimeFormat("en", options).format(date);
+      const errorMessage = document.getElementById("storage-error");
+
+      function showStorageError() {
+        errorMessage.textContent = "Could not save your check-in. Please check your browser’s storage settings.";
+      }
+
+      function saveDates() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify([...committedDates]));
+          errorMessage.textContent = "";
+        } catch (error) {
+          showStorageError();
+        }
+      }
+
+      function calculateBestStreak(dates) {
+        let best = 0;
+        let run = 0;
+        let previous = null;
+        const sortedDates = [...dates].sort();
+
+        for (const key of sortedDates) {
+          const current = new Date(`${key}T00:00:00`);
+          const difference = previous ? (current - previous) / 86400000 : null;
+          run = difference === 1 ? run + 1 : 1;
+          best = Math.max(best, run);
+          previous = current;
+        }
+        return best;
+      }
+
+      function calculateCurrentStreak() {
+        const cursor = new Date(today);
+        if (!committedDates.has(dateKey(cursor))) {
+          cursor.setDate(cursor.getDate() - 1);
+        }
+
+        let streak = 0;
+        while (committedDates.has(dateKey(cursor))) {
+          streak += 1;
+          cursor.setDate(cursor.getDate() - 1);
+        }
+        return streak;
+      }
+
+      function renderCalendar() {
+        const year = viewedMonth.getFullYear();
+        const month = viewedMonth.getMonth();
+        const daysContainer = document.getElementById("calendar-days");
+        const firstWeekday = (new Date(year, month, 1).getDay() + 6) % 7;
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const days = [];
+
+        for (let index = 0; index < firstWeekday; index += 1) {
+          days.push('<span class="day-cell empty" aria-hidden="true"></span>');
+        }
+
+        for (let day = 1; day <= daysInMonth; day += 1) {
+          const date = new Date(year, month, day);
+          const key = dateKey(date);
+          const isCommitted = committedDates.has(key);
+          const isToday = key === dateKey(today);
+          const isFuture = date > today;
+          const classes = ["day-cell"];
+          if (isCommitted) classes.push("is-committed");
+          if (isToday) classes.push("is-today");
+          if (isFuture) classes.push("is-future");
+          const label = `${formatDate(date, { month: "long" })} ${day}${isCommitted ? ", committed" : isFuture ? ", upcoming" : ", no commit"}${isToday ? ", today" : ""}`;
+          days.push(`<span class="${classes.join(" ")}" role="gridcell" aria-label="${label}">${day}${isCommitted ? '<span class="day-check" aria-hidden="true">✓</span>' : ""}</span>`);
+        }
+
+        const remainder = days.length % 7;
+        if (remainder) {
+          for (let index = 0; index < 7 - remainder; index += 1) {
+            days.push('<span class="day-cell empty" aria-hidden="true"></span>');
+          }
+        }
+
+        daysContainer.innerHTML = days.join("");
+        document.getElementById("month-label").textContent = formatDate(viewedMonth, { month: "long", year: "numeric" });
+        document.getElementById("next-month").disabled =
+          new Date(year, month + 1, 1) > new Date(today.getFullYear(), today.getMonth(), 1);
+
+        const monthCount = [...committedDates].filter((key) => key.startsWith(`${year}-${String(month + 1).padStart(2, "0")}-`)).length;
+        document.getElementById("month-summary").textContent = `${monthCount} ${monthCount === 1 ? "day" : "days"} committed`;
+        document.getElementById("month-days").textContent = monthCount;
+      }
+
+      function render() {
+        const todayKey = dateKey(today);
+        const checkedInToday = committedDates.has(todayKey);
+        const currentStreak = calculateCurrentStreak();
+        const currentStreakLabel = checkedInToday
+          ? "Nice work! Keep the momentum going."
+          : currentStreak > 0
+            ? "One commit today keeps it alive."
+            : "Your next streak starts today.";
+
+        document.getElementById("today-label").textContent = formatDate(today, { weekday: "long", month: "short", day: "numeric" });
+        document.getElementById("checkin-date").textContent = formatDate(today, { weekday: "long", month: "long", day: "numeric" });
+        document.getElementById("current-streak").textContent = currentStreak;
+        document.getElementById("streak-message").textContent = currentStreakLabel;
+        document.getElementById("total-days").textContent = committedDates.size;
+        const bestStreak = calculateBestStreak(committedDates);
+        document.getElementById("best-streak").textContent = `${bestStreak} ${bestStreak === 1 ? "day" : "days"}`;
+
+        const button = document.getElementById("checkin-button");
+        const title = document.getElementById("checkin-title");
+        const copy = document.getElementById("checkin-copy");
+        const buttonLabel = document.getElementById("button-label");
+        button.disabled = checkedInToday;
+        button.classList.toggle("is-done", checkedInToday);
+        title.textContent = checkedInToday ? "You showed up today." : "Did you make a commit today?";
+        copy.textContent = checkedInToday ? "That’s one more day of progress. See you tomorrow!" : "Every commit counts, no matter how small.";
+        buttonLabel.textContent = checkedInToday ? "Checked in for today" : "Yes, I committed today";
+
+        renderCalendar();
+      }
+
+      try {
+        const savedDates = localStorage.getItem(STORAGE_KEY);
+        if (savedDates) {
+          const parsedDates = JSON.parse(savedDates);
+          if (!Array.isArray(parsedDates) || !parsedDates.every((date) => typeof date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(date))) {
+            throw new TypeError("Saved commit history is invalid.");
+          }
+          committedDates = new Set(parsedDates);
+        }
+      } catch (error) {
+        showStorageError();
+      }
+
+      document.getElementById("checkin-button").addEventListener("click", () => {
+        if (committedDates.has(dateKey(today))) return;
+        committedDates.add(dateKey(today));
+        saveDates();
+        render();
+      });
+
+      document.getElementById("previous-month").addEventListener("click", () => {
+        viewedMonth = new Date(viewedMonth.getFullYear(), viewedMonth.getMonth() - 1, 1);
+        renderCalendar();
+      });
+
+      document.getElementById("next-month").addEventListener("click", () => {
+        const nextMonth = new Date(viewedMonth.getFullYear(), viewedMonth.getMonth() + 1, 1);
+        if (nextMonth <= new Date(today.getFullYear(), today.getMonth(), 1)) {
+          viewedMonth = nextMonth;
+          renderCalendar();
+        }
+      });
+
+      render();
+      document.getElementById("daily-number").textContent = DAILY_NUMBER;
+    </script>
+  </body>
+</html>
